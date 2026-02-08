@@ -2,5 +2,11 @@
 
 set -euxo pipefail
 
-$PYTHON -m pip install . -vv
+if [[ "${CONDA_BUILD_CROSS_COMPILATION:-0}" == "1" ]]; then
+    export PYO3_CROSS_PYTHON_VERSION=${PY_VER}
+    maturin build --release --strip --interpreter "python${PY_VER}" --out dist
+    ${PYTHON} -m pip install dist/*.whl --no-deps -vv
+else
+    $PYTHON -m pip install . -vv
+fi
 cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
