@@ -42,6 +42,10 @@ tests:
         imports:
           - py_rust_stemmers
         pip_check: true
+  - if: build_platform == target_platform
+    then:
+      script:
+        - python -c "from py_rust_stemmers import SnowballStemmer; s = SnowballStemmer('english'); assert s.stem_word('running') == 'run'"
 
 about:
   homepage: https://github.com/qdrant/py-rust-stemmers
