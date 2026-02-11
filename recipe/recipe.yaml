@@ -12,7 +12,9 @@ source:
     sha256: f79ad92c0936186de30f349d55f5e4162845793661e5f8b4d07e8734a92fed6a
 
 build:
-  number: 2
+  number: 3
+  skip:
+    - match(python, ">=3.14")
 
 requirements:
   build:
