@@ -12,7 +12,9 @@ source:
     sha256: f79ad92c0936186de30f349d55f5e4162845793661e5f8b4d07e8734a92fed6a
 
 build:
-  number: 2
+  number: 3
+  skip:
+    - match(python, ">=3.14")
 
 requirements:
   build:
@@ -40,6 +42,10 @@ tests:
         imports:
           - py_rust_stemmers
         pip_check: true
+  - if: build_platform == target_platform
+    then:
+      script:
+        - python -c "from py_rust_stemmers import SnowballStemmer; s = SnowballStemmer('english'); assert s.stem_word('running') == 'run'"
 
 about:
   homepage: https://github.com/qdrant/py-rust-stemmers
