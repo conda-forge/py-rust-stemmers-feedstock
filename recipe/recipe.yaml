@@ -1,5 +1,5 @@
 context:
-  version: "0.1.5"
+  version: "0.1.8"
 
 package:
   name: py-rust-stemmers
@@ -7,14 +7,14 @@ package:
 
 source:
   - url: https://pypi.org/packages/source/p/py-rust-stemmers/py_rust_stemmers-${{ version }}.tar.gz
-    sha256: e9c310cfb5c2470d7c7c8a0484725965e7cab8b1237e106a0863d5741da3e1f7
+    sha256: 6b0f6f48bc54d607aed802de872fcd5a71bae969a6760976dc78ce55e8eaf3da
   - url: https://raw.githubusercontent.com/qdrant/py-rust-stemmers/refs/heads/master/LICENSE
     sha256: f79ad92c0936186de30f349d55f5e4162845793661e5f8b4d07e8734a92fed6a
 
 build:
-  number: 3
+  number: 0
   skip:
-    - match(python, ">=3.14")
+    - match(python, ">3.14")
 
 requirements:
   build:
