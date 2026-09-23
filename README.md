@@ -263,4 +263,5 @@ Feedstock Maintainers
 =====================
 
 * [@moritzwilksch](https://github.com/moritzwilksch/)
+* [@pb01ka](https://github.com/pb01ka/)
 
